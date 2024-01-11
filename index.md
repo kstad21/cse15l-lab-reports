@@ -1,5 +1,7 @@
 # Katy's CSE15L Lab Reports
-## Lab 1 (1/11)
+## Lab 1
+### Example of the cd command: 
+![cd command with NO arguments](cdnoArg.jpg)
 
 blah blah 
 *this should be italic*
