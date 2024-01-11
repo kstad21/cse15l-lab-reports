@@ -4,6 +4,8 @@
 ![cd command with NO arguments](cdnoArg.jpg)
 ![cd command with DIR argument](cdDirArg.jpg)
 ![cd command with FILE argument](cdFileArg.jpg)
+### Example of the ls command:
+
 
 blah blah 
 *this should be italic*
