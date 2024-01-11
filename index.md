@@ -9,7 +9,9 @@
 ![ls command with DIR argument](lsDirArg.jpg)
 ![ls command with FILE argument](lsFileArg.jpg)
 ### Example of the cat command:
-
+![cat command with NO arguments](catNoArg.jpg)
+![cat command with DIR argument](catDirArg.jpg)
+![cat command with FILE argument](catFileArg.jpg)
 
 
 blah blah 
