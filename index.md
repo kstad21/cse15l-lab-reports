@@ -5,6 +5,9 @@
 ![cd command with DIR argument](cdDirArg.jpg)
 ![cd command with FILE argument](cdFileArg.jpg)
 ### Example of the ls command:
+![ls command with NO arguments](lsNoArg.jpg)
+![ls command with DIR argument](lsDirArg.jpg)
+![ls command with FILE argument](lsFile.jpg)
 
 
 blah blah 
