@@ -8,6 +8,8 @@
 ![ls command with NO arguments](lsNoArg.jpg)
 ![ls command with DIR argument](lsDirArg.jpg)
 ![ls command with FILE argument](lsFileArg.jpg)
+### Example of the cat command:
+
 
 
 blah blah 
