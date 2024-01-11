@@ -7,7 +7,7 @@
 ### Example of the ls command:
 ![ls command with NO arguments](lsNoArg.jpg)
 ![ls command with DIR argument](lsDirArg.jpg)
-![ls command with FILE argument](lsFile.jpg)
+![ls command with FILE argument](lsFileArg.jpg)
 
 
 blah blah 
