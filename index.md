@@ -1,5 +1,5 @@
-*Katy's CSE15L Lab Reports
-**Lab 1 (1/11)
+*Katy's CSE15L Lab Reports*
+**Lab 1 (1/11)**
 
 blah blah 
 *this should be italic*
