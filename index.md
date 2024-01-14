@@ -32,10 +32,14 @@
 
 ---
 ![ls command with FILE argument](lsFileArg.jpg)
+- Working directory: `home`
+- `ls` with a file argument results in the file's path, relative to our working directory, being printed. This isn't an error because, though we normally use `ls` to display files within a directory, it's programmed to just output the information it knows about a file if a file is passed in as an argument. In the screenshot above, I give a path to a file and that path is also outputted.
+
 ---
 ### Example of the `cat` command:
 ---
 ![cat command with NO arguments](catNoArg.jpg)
+- Working directory: `home`
 ---
 ![cat command with DIR argument](catDirArg.jpg)
 ---
