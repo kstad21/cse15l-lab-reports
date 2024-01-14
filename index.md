@@ -38,12 +38,18 @@
 ---
 ### Example of the `cat` command:
 ---
-![cat command with NO arguments](catNoArg.jpg)
+![cat command with NO arguments](catNoArg1.jpg)
 - Working directory: `home`
+- If we use the `cat` command with no arguments, it recognizes that there is no file provided for it to read from, and it reads from `stdin` (the "standard input device") instead. Anything I type after entering `cat`, no args, will just be printed again on the next line after I press enter. To exit the loop of typing, entering, and having what you typed outputted, you can press `control + d`, and we return to the normal prompt.
+  
 ---
 ![cat command with DIR argument](catDirArg.jpg)
+- Working directory: `home`
+- Using `cat` with a directory argument displays an error message: `cat: lecture1: Is a directory`. There are ways for you to use `cat` to print every file within a directory, but `cat` can't print a directory. The example below shows how `cat` prints the contents of a file.
 ---
 ![cat command with FILE argument](catFileArg.jpg)
+- Working directory: `home`
+- Using `cat` with a file path argument outputs the contents of that file without risking changing anything in the file. If we open the file `en-us.txt`, we see the contents "Hello World!", and those contents are correctly printed when we use the command `cat lecture1/messages/en-us.txt`.
 ---
 
 
