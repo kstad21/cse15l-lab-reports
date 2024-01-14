@@ -22,8 +22,14 @@
 ### Example of the `ls` command:
 ---
 ![ls command with NO arguments](lsNoArg.jpg)
+- Working directory: `lecture1`
+- When I type in `ls` with no arguments, that means the files in our current working directory will be listed as output. Indeed, we can see 4 files and/or directories listed, separated by spaces. `messages` is bold and in blue, which is Edstem's way of distinguishing a directory.
+  
 ---
 ![ls command with DIR argument](lsDirArg.jpg)
+- Working directory: `home`
+- Typing `ls` with a argument matching a directory/path to a directory results in the files in that directory being printed. In the example above, I provided `lecture1/messages`, which was the path (relative to my working directory, home) to the directory `messages`. Output was as expected: 4 language files are listed.
+
 ---
 ![ls command with FILE argument](lsFileArg.jpg)
 ---
