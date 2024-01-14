@@ -15,6 +15,9 @@
 ---
 
 ![cd command with FILE argument](cdFileArg.jpg)
+- Working directory: `lecture1`
+- When we use `cd` with an argument that matches one of our files or a path to one of our files, we see an error message: `messages/en-us.txt: Not a directory`. This is because the `cd` command is meant for the user to navigate through directories, and it's impossible to "navigate through" a file. 
+
 ---
 ### Example of the `ls` command:
 ---
