@@ -6,6 +6,7 @@
 ![cd command with NO arguments](cdnoArg.jpg)
 - Working directory: `home`
 - When `cd` is used with no arguments (meaning there's nothing after `cd` in the prompt), the user is returned to their home directory. Lack of output isn't an error, since we're changing directories without having to print any output. So when I write the command `pwd`, which prints our working directory, we're shown the path `/home`.
+
 ---
 ![cd command with DIR argument](cdDirArg.jpg)
 - Working directory: `home`
