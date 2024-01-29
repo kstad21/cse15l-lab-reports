@@ -5,7 +5,7 @@ I wrote a web server called `ChatServer` that takes in message and user argument
 ---
 Here is my code for `ChatServer`. Instead of an error message, I changed that to be a corrective prompt for the user. I also added a corrective message in case the user forgets to use an `&` to separate message and user.
 
-![Lab2 code](Lab2Code.jpg.sb-004b5929-gUML4P)
+![Lab2 code](lab2code2.jpg)
 
 ### First example of `ChatServer` use:
 ![ChatServer example](ChatServerUse1.jpg)
