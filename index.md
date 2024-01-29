@@ -1,4 +1,12 @@
 # Katy's CSE15L Lab Reports
+
+## Lab 2
+### I wrote a web server called ChatServer that takes in message and user arguments and maintains and displays an ongoing chat between users.
+---
+Here is my code for ChatServer. Instead of an error message, I changed that to be a corrective prompt for the user. I also added a corrective message in case the user forgets to use an "&" to separate message and user.
+![Lab2 code](Lab2Code.jpg)
+
+
 ## Lab 1
 ### Example of the `cd` command: 
 ---
