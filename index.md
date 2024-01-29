@@ -26,11 +26,16 @@ Here is my code for `ChatServer`. Instead of an error message, I changed that to
   - The request adds to our `chat` field, making it `"kstadler: this+is+my+second+lab+report!\nblogReader: wow+this+looks+like+a+professional+blog."`. See the corresponding point above on how I specifically accessed the `user` and `message` String.
 
 ### SSH Keypairs:
+`ls` and the absolute path to my public key stored on my local system:
 ![public key on remote system](publicKeyImage.png)
 
+`ls` and the absolute path to the private key stored on the remote `ieng6` system:
 ![private key on local system](privateKeyNotRemote.jpg)
 
-![login without pword](remoteKeyUse.png)
+Interaction showing my login to `ieng6` without a password:
+![login without pword](remoteKeyUse.jpg)
+
+### A few sentences on what I learned from Lab 3.
 ---
 ## Lab 1
 ### Example of the `cd` command: 
