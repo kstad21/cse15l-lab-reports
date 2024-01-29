@@ -25,6 +25,12 @@ Here is my code for `ChatServer`. Instead of an error message, I changed that to
 - How do these values change from the request?
   - The request adds to our `chat` field, making it `"kstadler: this+is+my+second+lab+report!\nblogReader: wow+this+looks+like+a+professional+blog."`. See the corresponding point above on how I specifically accessed the `user` and `message` String.
 
+### SSH Keypairs:
+![public key on remote system](publicKeyImage.png)
+
+![private key on local system](privateKeyNotRemote.jpg)
+
+![login without pword](remoteKeyUse.png)
 ---
 ## Lab 1
 ### Example of the `cd` command: 
