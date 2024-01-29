@@ -11,16 +11,19 @@ Here is my code for `ChatServer`. Instead of an error message, I changed that to
 ![ChatServer example](ChatServerUse1.jpg)
 - Methods called in my code: `main` starts up the server which eventually calls my `handleRequest` method. 
 - Relevant args or fields:
-  - `chat`, the ongoing `user: message` String. It starts with the value of an empty string.
-  - `url`, a URI object containing information about the url in our browser. We can use methods like `getQuery()` and `getPath()` to get a String value of the query and path respectively. For reference, `getPath()` would yield `/add-message` and `getQuery()` would yield `s=this+is+my+second+lab+report&user=kstadler`. If you look towards the top of the screenshot, you can see these arguments in the browser.
+  - `chat`, the ongoing `"user: message"` String. It starts with the value of an empty string.
+  - `url`, a URI object containing information about the url in our browser. We can use methods like `getQuery()` and `getPath()` to get a String value of the query and path respectively. For reference, `getPath()` would yield `"/add-message"` and `getQuery()` would yield `"s=this+is+my+second+lab+report!&user=kstadler"`. If you look towards the top of the screenshot, you can see these arguments in the browser.
 - How do these values change from the request?
-  - My handler method will check the path to see whether or not it is `/add-message`. In this case, it is, so we separate the query into two parts, for the message and user. We then access the exact string for the message and user by separating those two by the `=` sign. We append the `user` + `:` + `message` to the current value of `chat`, and return `chat`. `chat` will end this call with the value `kstadler: this+is+my+second+lab+report`.
+  - My handler method will check the path to see whether or not it is `"/add-message"`. In this case, it is, so we separate the query into two parts, for the message and user. We then access the exact string for the message and user by separating those two by the `=` sign. We append the `"user"` + `":"` + `"message"` to the current value of `chat`, and return `chat`. `chat` will end this call with the value `"kstadler: this+is+my+second+lab+report!"`.
 
 ### Second example of `ChatServer` use:
 ![ChatServer example](ChatServerUse2.jpg)
-- Methods called in my code:
+- Methods called in my code: `handleRequest` is called
 - Relevent args or fields:
+  - `chat`, the ongoing `"user: message"` String. It currently has the value `"kstadler: this+is+my+second+lab+report"`.
+  - `url`, a URI object containing information about the url in our browser. `getPath()` yields `"/add-message"`. `getQuery()` yields `"s=wow+this+looks+like+a+professional+blog.&user=blogReader"`.
 - How do these values change from the request?
+  - The request adds to our `chat` field, making it `"kstadler: this+is+my+second+lab+report!\nblogReader: wow+this+looks+like+a+professional+blog."`. See the corresponding point above on how I specifically accessed the `user` and `message` String.
 
 ---
 ## Lab 1
