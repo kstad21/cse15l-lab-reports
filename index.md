@@ -7,6 +7,18 @@ Here is my code for ChatServer. Instead of an error message, I changed that to b
 
 ![Lab2 code](Lab2Code.jpg)
 
+First example of ChatServer use:
+![ChatServer example](ChatServerUse1.jpg)
+- Methods called in my code:
+- Relevant args or fields:
+- How do these values change from the request?
+
+Second example of ChatServer use:
+![ChatServer example](ChatServerUse2.jpg)
+- Methods called in my code:
+- Relevent args or fields:
+- How do these values change from the request?
+
 
 ## Lab 1
 ### Example of the `cd` command: 
