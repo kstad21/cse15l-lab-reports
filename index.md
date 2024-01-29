@@ -41,6 +41,7 @@ Here is my code for `ChatServer`. Instead of an error message, I changed that to
 
 ### A few sentences on what I learned from Lab 2 & 3.
 Before labs 2 and 3, I didn't know anything about servers or accessing remote systems from my local computer. I really enjoyed looking at the code for the servers and seeing the things we wrote in the Edstem environment pop up on my browser. I'd heard of the term `ssh` before, but it seemed foreign, unknown, and intimidating. Now, I have learned how to log into a remote system, `ieng6`, and that I can use the terminal to move around that system just as I can with my own. I have also learned that I can host a server on that system, then access it on my local machine. I even learned how to generate a specific key and store it in the remote system so that there is a key pair between my computer and the remote system, allowing me to log in to ieng6 without a password.
+
 ---
 ## Lab 1
 ### Example of the `cd` command: 
