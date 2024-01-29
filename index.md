@@ -7,7 +7,7 @@ Here is my code for `ChatServer`. Instead of an error message, I changed that to
 
 ![Lab2 code](Lab2Code.jpg)
 
-### First example of `ChatServer`:
+### First example of `ChatServer` use:
 ![ChatServer example](ChatServerUse1.jpg)
 - Methods called in my code: `main` starts up the server which eventually calls my `handleRequest` method. 
 - Relevant args or fields:
@@ -15,6 +15,8 @@ Here is my code for `ChatServer`. Instead of an error message, I changed that to
   - `url`, a URI object containing information about the url in our browser. We can use methods like `getQuery()` and `getPath()` to get a String value of the query and path respectively. For reference, `getPath()` would yield `"/add-message"` and `getQuery()` would yield `"s=this+is+my+second+lab+report!&user=kstadler"`. If you look towards the top of the screenshot, you can see these arguments in the browser.
 - How do these values change from the request?
   - My handler method will check the path to see whether or not it is `"/add-message"`. In this case, it is, so we separate the query into two parts, for the message and user. We then access the exact string for the message and user by separating those two by the `=` sign. We append the `"user"` + `":"` + `"message"` to the current value of `chat`, and return `chat`. `chat` will end this call with the value `"kstadler: this+is+my+second+lab+report!"`.
+
+---
 
 ### Second example of `ChatServer` use:
 ![ChatServer example](ChatServerUse2.jpg)
@@ -25,14 +27,16 @@ Here is my code for `ChatServer`. Instead of an error message, I changed that to
 - How do these values change from the request?
   - The request adds to our `chat` field, making it `"kstadler: this+is+my+second+lab+report!\nblogReader: wow+this+looks+like+a+professional+blog."`. See the corresponding point above on how I specifically accessed the `user` and `message` String.
 
+---
+
 ### SSH Keypairs:
-`ls` and the absolute path to my public key stored on my local system:
+### `ls` and the absolute path to my public key stored on my local system:
 ![public key on remote system](publicKeyImage.png)
 
-`ls` and the absolute path to the private key stored on the remote `ieng6` system:
+### `ls` and the absolute path to the private key stored on the remote `ieng6` system:
 ![private key on local system](privateKeyNotRemote.jpg)
 
-Interaction showing my login to `ieng6` without a password:
+### Interaction showing my login to `ieng6` without a password:
 ![login without pword](remoteKeyUse.jpg)
 
 ### A few sentences on what I learned from Lab 3.
