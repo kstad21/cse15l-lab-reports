@@ -7,7 +7,7 @@ Here is my code for `ChatServer`. Instead of an error message, I changed that to
 
 ![Lab2 code](Lab2Code.jpg)
 
-###First example of `ChatServer` uainse:
+### First example of `ChatServer`:
 ![ChatServer example](ChatServerUse1.jpg)
 - Methods called in my code: `main` starts up the server which eventually calls my `handleRequest` method. 
 - Relevant args or fields:
@@ -15,7 +15,7 @@ Here is my code for `ChatServer`. Instead of an error message, I changed that to
   - `url `, a URI object containing information about the url in our browser. We can use methods like `getQuery()` and `getPath` to get a String value of the query and path respectively. For reference, `getPath` would yield `/add-message` and getQuery would yield `s=Hello&user=jpolitz`.
 - How do these values change from the request?
 
-###Second example of `ChatServer` use:
+### Second example of `ChatServer` use:
 ![ChatServer example](ChatServerUse2.jpg)
 - Methods called in my code:
 - Relevent args or fields:
