@@ -12,7 +12,7 @@ Here is my code for `ChatServer`. Instead of an error message, I changed that to
 - Methods called in my code: `main` starts up the server which eventually calls my `handleRequest` method. 
 - Relevant args or fields:
   - `chat`, the ongoing `user: message` String. It starts with the value of an empty string.
-  - `url `, a URI object containing information about the url in our browser. We can use methods like `getQuery()` and `getPath` to get a String value of the query and path respectively. For reference, `getPath` would yield `/add-message` and getQuery would yield `s=this+is+my+second+lab+report&user=kstadler`. If you look towards the top of the screenshot, you can see these arguments in the browser.
+  - `url`, a URI object containing information about the url in our browser. We can use methods like `getQuery()` and `getPath()` to get a String value of the query and path respectively. For reference, `getPath()` would yield `/add-message` and `getQuery()` would yield `s=this+is+my+second+lab+report&user=kstadler`. If you look towards the top of the screenshot, you can see these arguments in the browser.
 - How do these values change from the request?
   - My handler method will check the path to see whether or not it is `/add-message`. In this case, it is, so we separate the query into two parts, for the message and user. We then access the exact string for the message and user by separating those two by the `=` sign. We append the `user` + `:` + `message` to the current value of `chat`, and return `chat`. `chat` will end this call with the value `kstadler: this+is+my+second+lab+report`.
 
@@ -22,7 +22,7 @@ Here is my code for `ChatServer`. Instead of an error message, I changed that to
 - Relevent args or fields:
 - How do these values change from the request?
 
-
+---
 ## Lab 1
 ### Example of the `cd` command: 
 ---
