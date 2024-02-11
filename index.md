@@ -1,5 +1,17 @@
 # Katy's CSE15L Lab Reports
 
+## Third Lab Report
+Testing, debugging, and command-line.
+___
+### Part 1: 
+There is a bug in the reverse() method of the ArrayExamples class. The method is supposed to take in an array and return a reversed version of that array. For example, {1, 2, 3} --> {3, 2, 1}.
+- Failure inducing output:
+    `@Test`
+    `public void testReversedActual() {`
+        `int[] input1 = {1, 2, 3};`
+        `assertArrayEquals(new int[]{3, 2, 1}, ArrayExamples.reversed(input1);`
+    `}`
+
 ## Second Lab Report
 I wrote a web server called `ChatServer` that takes in message and user arguments and maintains and displays an ongoing chat between users. I also added a `clear` path so that the user can clear the chat if they'd like to.
 ---
