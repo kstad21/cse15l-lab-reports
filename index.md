@@ -53,7 +53,7 @@ In general, the grep command searches a file/pattern for a given set of characte
 - `grep -l`: display the file names of the lines that match a given pattern
     - example 1: search the entire `technical` directory and redirect file names that have lines matching "Democrat" into a file called `files-with-democrat.txt`. Note that this is in the working directory `technical`.
         - command: `grep -l "Democrat" $(find -f .) > files-with-democrat.txt`
-        - output: no output, instead we get a file containing:
+        - output: we get a file containing:
         ```
         ./government/Gen_Account_Office/July11-2001_gg00172r.txt
         ./government/Media/Good_guys_reward.txt
@@ -69,7 +69,7 @@ In general, the grep command searches a file/pattern for a given set of characte
         ```
     - example 2: search the entire `technical` directory and redirect file names that have lines matching "rna" into a file called `files-with-rna.txt`. Note that this is in the working directory `technical`.
         - command: `grep -l "rna" $(find -f .) > files-with-rna.txt`
-        - output: no output, instead we get a file containing MANY file names, including:
+        - output: we get a file containing MANY file names, including:
         ```
         ./government/About_LSC/LegalServCorp_v_VelazquezSyllabus.txt
         ./government/About_LSC/Progress_report.txt
@@ -93,7 +93,7 @@ In general, the grep command searches a file/pattern for a given set of characte
 - `grep -w`: display the lines that match the whole word of the pattern/string
     - example 1: with the example above, we end up with a super long file full of files that have nothing to do with rna. To make sure we are only displaying the file names of files that have "rna", we use the -w command to specify that we want "rna" to be the WHOLE word. Hopefully, we'll end up with a shorter, more tailored list of files. Note that this is in the working directory `technical`.
         - command: `grep -lw "rna" $(find -f .) > files-with-onlyrna.txt`
-        - output: nothing, but we get a file with the contents:
+        - output: we get a file with the contents:
             ```
             ./biomed/1471-2164-3-13.txt
             ./biomed/1471-2199-3-17.txt
@@ -103,7 +103,7 @@ In general, the grep command searches a file/pattern for a given set of characte
         - note: much shorter, and it makes sense that these files contain "rna"!. Not "external" or "internal", which make more sense for government files.
     - example 2: search 911report files for Bill to see where Bill Clinton is mentioned (note that grep is by default case sensitive). We want to use -w because we don't want to get matches for "Billing" or "Bills" or "Billed", for example. Note that our working directory is `technical`.
         - command: `grep -w "Bill" $(find 911report) > bill.txt`
-        - output: nothing, but we get a file with the contents:
+        - output: we get a file with the contents:
         ```
         911report/chapter-13.4.txt:                Bin Laden: How Bill Clinton's Failures Unleashed Global Terror (Regnery, 2003),
         911report/chapter-13.5.txt:                sequential referral of the annual authorization bill for the national foreign
@@ -126,8 +126,105 @@ In general, the grep command searches a file/pattern for a given set of characte
         911report/chapter-11.txt:            Whatever the weaknesses in the CIA's portraiture, both Presidents Bill Clinton and
         ```
         - note that we did not use the `l` modifier, so our output also has the actual line that matches, not just the name of the file.
-- `grep v`: display the lines that do NOT match the given pattern/string
+- `grep c`: display the number of lines that match a given string/pattern
+    - example 1: get an idea of how many times Bill Clinton is mentioned in the `911report`. Note that our working directory is `technical`.
+        - command: `grep -c "Bill" $(find 911report)`
+        - output:
+        ```
+        grep: 911report: Is a directory
+        911report/chapter-13.4.txt:1
+        911report/chapter-13.5.txt:1
+        911report/chapter-13.1.txt:0
+        911report/chapter-13.2.txt:2
+        911report/chapter-13.3.txt:2
+        911report/chapter-3.txt:4
+        911report/chapter-2.txt:0
+        911report/chapter-1.txt:0
+        911report/chapter-5.txt:0
+        911report/chapter-6.txt:1
+        911report/chapter-7.txt:0
+        911report/chapter-9.txt:0
+        911report/chapter-8.txt:0
+        911report/preface.txt:0
+        911report/chapter-12.txt:0
+        911report/chapter-10.txt:0
+        911report/chapter-11.txt:1
+        ```
+        - note: We can see that Bill Clinton will probably be mentioned most in chapter 3 of the report. Plus, if we're looking to find information about Bill Clinton, we know not to look at Chapter 7, 8, 9, etc.
 - `grep -f`: take input from lines in a file and display matches
+    - example 1: pull from a file called `parties.txt`, containing a list of government parties (Democrat, Republican, Independent), and search the `government` directory for party. For easier viewing, I directed this to a file called `gov-party.txt`. Note that the working directory is `technical`.
+        - command: `grep -f parties.txt $(find government) > gov-party.txt`
+        - output: we get a file with the contents:
+        ```
+        government/About_LSC/State_Planning_Report.txt:Independent Evaluation of Delivery System. Florida, Ohio,
+        government/Gen_Account_Office/July11-2001_gg00172r.txt:Democratic Member, Subcommittee on Economic Development, Public
+        government/Gen_Account_Office/July11-2001_gg00172r.txt:Independent Project
+        government/Gen_Account_Office/d03419sp.txt:Independent committees of the board of directors, such as the
+        government/Gen_Account_Office/Letter_Walkeraug17let.txt:Republican Ranking Minority Member of the House Committee on
+        government/Gen_Account_Office/im814.txt:Verification and validation performed by anIndependent
+        government/Gen_Account_Office/ai9868.txt:Practice 6: Provide the Central Group Ready and Independent
+        government/Gen_Account_Office/May1998_ai98068.txt:Practice 6: Provide the Central Group Ready and Independent
+        government/Media/Good_guys_reward.txt:and the Democratic Party.
+        government/Media/Barnes_pro_bono.txt:Dent, who served as spokesman for Democratic Gov. Zell Miller in
+        government/Media/predatory_loans.txt:Linkhart, a Denver Democrat, introduced the bill at the behest
+        government/Media/predatory_loans.txt:Senate but foresees trouble in the Republican-controlled House.
+        government/Media/FY_04_Budget_Outlook.txt:Republicans cut the organization's budget deeply in 1996, but
+        government/Media/Terrorist_Attack.txt:Republican-controlled Congress prohibited lawyers receiving federal
+        government/Media/Terrorist_Attack.txt:inaugurated by President Clinton and some other Democrats. But even
+        government/Media/Poverty_Lawyers.txt:Schwartz, a law-and-order Republican on the Council of the District
+        government/Media/Poverty_Lawyers.txt:"They try to see her as less of a Republican," said Ms. Schwartz
+        government/Media/Self-Help_Website.txt:Pryce, a Republican from Upper Arlington.
+        government/Media/Civil_Matters.txt:Naples Republicans Dudley Goodlette in the House and Burt
+        government/Media/Attorney_gives_his_time.txt:Tallahassee Democrat
+        government/Media/Weak_economy.txt:Busch, an Anne Arundel County Democrat.
+        government/Media/Weak_economy.txt:Mike Miller, a Prince George's County Democrat. "I do believe the
+        government/Media/Barr_sharpening_ax.txt:conservative Republican congressman from Georgia, is asking
+        government/Media/Barr_sharpening_ax.txt:Since 1994, when Republicans took over as the majority party in
+        government/Media/Barr_sharpening_ax.txt:A House Democratic staffer close to the case said that GAO
+        government/Media/Politician_Practices.txt:governor. Democrat Roy Barnes was upset in November by Sonny
+        ```
+    - example 2: Check the `plos` directory for a list of different researchers and display the file name and line in a file called `researcher-mentions.txt`. Our list of different researchers comes from the file `researchers.txt`, which contains:
+    ```
+    Hamilton
+    Eisen
+    Gibson
+    Wagner
+    Clarke
+    Holloway
+    ```
+        - command: `grep -f researchers.txt $(find plos) > researcher-mention.txt`
+        - output: a file containing:
+        ```
+        plos/journal.pbio.0020183.txt:        sexual biology. With William Hamilton, Hurst came up an explanation for this apparent
+        plos/journal.pbio.0020183.txt:        rapidly, Hurst and Hamilton showed. A nuclear gene that enforces uniparental inheritance of
+        plos/journal.pbio.0020019.txt:        it is acting (Gibson and Wagner 2000). However, canalization also reduces the effects of
+        plos/journal.pbio.0030050.txt:        Paleoanthropologist Ralph Holloway (Columbia University, New York, United States) uses
+        plos/journal.pbio.0030050.txt:        Holloway explains. Endocasts are particularly useful for comparing brain sizes, but they
+        plos/journal.pbio.0030050.txt:        appeared. These often reflect cerebral specialisation, and Holloway believes that some of
+        plos/journal.pbio.0030050.txt:        Indeed, says Holloway, the reorganisation of the brain during evolution has been at least
+        plos/journal.pbio.0030050.txt:        Holloway work on the raw material of random gene mutations, and molecular biologists now
+        plos/journal.pbio.0020043.txt:        such tool is W. D. Hamilton's (1964a) theory of inclusive fitness, which holds that the
+        plos/journal.pbio.0020043.txt:        genetic relatedness. But the rise of Hamiltonian thinking coincided with the eclipse of
+        plos/journal.pbio.0020043.txt:          Hamilton (1964b) pointed out that this high relatedness can explain the high level of
+        plos/journal.pbio.0020133.txt:        silenced target genes in transgenic plants (Hamilton and Baulcombe 1999). They proposed
+        plos/pmed.0010046.txt:        PLoS Medicine , Mike Clarke, the director of the United Kingdom Cochrane
+        plos/pmed.0010046.txt:        response to Clarke's challenge is that it will remain difficult for researchers,
+        plos/pmed.0010046.txt:        Returning to Clarke's challenge, our final response is to say that we have a bold vision
+        plos/journal.pbio.0020406.txt:        availability in the region today (Clarke 2003).
+        plos/journal.pbio.0020406.txt:        constraints (Clarke and Johnston 2003). However, it remains remarkable that even simple
+        plos/journal.pbio.0020215.txt:        epithelium (Cho et al. 2000; Gibson and Schubiger 2000). Furthermore, in the wing imaginal
+        plos/journal.pbio.0020439.txt:          (Rai and Eisenberg 2003).
+        plos/journal.pbio.0020148.txt:        Francis Hamilton, the Briton who first described zebrafish (
+        plos/journal.pbio.0020148.txt:        neurobiologist Judith Eisen (University of Oregon, Eugene, Oregon, United States), ‘who
+        plos/journal.pbio.0020148.txt:        Eisen, who now heads her own research group, went to Oregon in 1983 to work on 
+        plos/journal.pbio.0020148.txt:        experiments’, Eisen enthuses, ‘and development is quick but not too quick’. Being able to
+        plos/journal.pbio.0020148.txt:        for Eisen and other neurobiologists.
+        plos/journal.pbio.0020148.txt:        The properties of zebrafish that attracted Eisen soon attracted people interested in
+        plos/journal.pbio.0020148.txt:        other aspects of vertebrate development to the stripy tiddler (Figure 1). As Eisen
+        plos/journal.pbio.0020148.txt:        Wilson's own interest is in neuroanatomy. Together with Jon Clarke, another
+        ```
+
+  
 
 
 ## Second Lab Report
