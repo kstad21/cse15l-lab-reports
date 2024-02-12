@@ -2,7 +2,9 @@
 
 ## Third Lab Report
 Testing, debugging, and command-line.
+
 ---
+
 ### Part 1: 
 There is a bug in the reverse() method of the ArrayExamples class. The method is supposed to take in an array and return a reversed version of that array. For example, {1, 2, 3} --> {3, 2, 1}.
 - Failure inducing input:
