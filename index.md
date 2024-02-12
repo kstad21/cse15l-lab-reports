@@ -101,7 +101,7 @@ In general, the grep command searches a file/pattern for a given set of characte
             ./biomed/1471-2148-3-7.txt
             ```
         - note: much shorter, and it makes sense that these files contain "rna"!. Not "external" or "internal", which contain "rna" but make more sense for government files.
-    - **example 2:** search 911report files for Bill to see where Bill Clinton is mentioned (note that grep is by default case sensitive). We want to use -w because we don't want to get matches for "Billing" or "Bills" or "Billed", for example. Note that our working directory is `technical`.
+    - **example 2:** search `911report` files for Bill to see where Bill Clinton is mentioned (note that `grep` is by default case sensitive). We want to use `-w` because we don't want to get matches for "Billing" or "Bills" or "Billed", for example. Note that our working directory is `technical`.
         - command: `grep -w "Bill" $(find 911report) > bill.txt`
         - output: we get a file with the contents:
         ```
@@ -125,7 +125,7 @@ In general, the grep command searches a file/pattern for a given set of characte
         911report/chapter-6.txt:                Tanzania, President Bill Clinton and his chief aides explored ways of getting Bin
         911report/chapter-11.txt:            Whatever the weaknesses in the CIA's portraiture, both Presidents Bill Clinton and
         ```
-        - note that we did not use the `l` modifier, so our output also has the actual line that matches, not just the name of the file.
+        - note that we did not use the `-l` modifier, so our output also has the actual line that matches, not just the name of the file.
 - `grep -c`: display the number of lines that match a given string/pattern
     - **example 1:** get an idea of how many times Bill Clinton is mentioned in the `911report`. Note that our working directory is `technical`.
         - command: `grep -c "Bill" $(find 911report)`
