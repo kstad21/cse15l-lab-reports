@@ -140,7 +140,7 @@ In general, the grep command searches a file/pattern for a given set of characte
         911report/chapter-10.txt:0
         911report/chapter-11.txt:1
         ```
-        - note: we can see that Bill Clinton will probably be mentioned most in chapter 3 of the report. Plus, if we're looking to find information about Bill Clinton, we know not to look at Chapter 7, 8, 9, etc.
+        - note: we can see that Bill Clinton will probably be mentioned most in Chapter 3 of the report. Plus, if we're looking to find information about Bill Clinton, we know not to look at Chapter 7, 8, 9, etc.
     - **example 2:** check the `government` `Alcohol_Problems` for any mentions of addiction, to get an idea of which session talked the most about addiction. Write to a file called `addict-mentions.txt` for easier viewing. Note that our working directory is `technical`.
         - command: `grep -c "addict" $(find government/Alcohol_Problems) > addict-mentions.txt`
         - output: a file containing:
