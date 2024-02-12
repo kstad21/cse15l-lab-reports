@@ -150,7 +150,17 @@ In general, the grep command searches a file/pattern for a given set of characte
         911report/chapter-10.txt:0
         911report/chapter-11.txt:1
         ```
-        - note: We can see that Bill Clinton will probably be mentioned most in chapter 3 of the report. Plus, if we're looking to find information about Bill Clinton, we know not to look at Chapter 7, 8, 9, etc.
+        - note: we can see that Bill Clinton will probably be mentioned most in chapter 3 of the report. Plus, if we're looking to find information about Bill Clinton, we know not to look at Chapter 7, 8, 9, etc.
+    - example 2: check the `government` `Alcohol_Problems` for any mentions of addiction, to get an idea of which session talked the most about addiction. Write to a file called `addict-mentions.txt` for easier viewing. Note that our working directory is `technical`.
+        - command: `grep -c "addict" $(find government/Alcohol_Problems) > addict-mentions.txt`
+        - output: a file containing:
+        ```
+        government/Alcohol_Problems/Session2-PDF.txt:6
+        government/Alcohol_Problems/Session3-PDF.txt:8
+        government/Alcohol_Problems/DraftRecom-PDF.txt:2
+        government/Alcohol_Problems/Session4-PDF.txt:11
+        ```
+        - note: we can see that session 4 mentions addiction the most (assuming there's an even spread of mentions across lines), though all of them mention it a fair amount. This can also give us an overall idea of entertwined alcoholism and addiction are in these government documents. 
 - `grep -f`: take input from lines in a file and display matches
     - example 1: pull from a file called `parties.txt`, containing a list of government parties (Democrat, Republican, Independent), and search the `government` directory for party. For easier viewing, I directed this to a file called `gov-party.txt`. Note that the working directory is `technical`.
         - command: `grep -f parties.txt $(find government) > gov-party.txt`
