@@ -126,7 +126,7 @@ In general, the grep command searches a file/pattern for a given set of characte
         911report/chapter-11.txt:            Whatever the weaknesses in the CIA's portraiture, both Presidents Bill Clinton and
         ```
         - note that we did not use the `l` modifier, so our output also has the actual line that matches, not just the name of the file.
-- `grep c`: display the number of lines that match a given string/pattern
+- `grep -c`: display the number of lines that match a given string/pattern
     - example 1: get an idea of how many times Bill Clinton is mentioned in the `911report`. Note that our working directory is `technical`.
         - command: `grep -c "Bill" $(find 911report)`
         - output:
