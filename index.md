@@ -91,7 +91,7 @@ In general, the grep command searches a file/pattern for a given set of characte
         ```
         - note here that there are a lot of files in the government directory that seem to contain "rna", which is peculiar. Check out the next example for more on this.
 - `grep -w`: display the lines that match the whole word of the pattern/string
-    - **example 1:** with the example above, we end up with a super long file full of files that have nothing to do with rna. To make sure we are only displaying the file names of files that have "rna", we use the -w command to specify that we want "rna" to be the WHOLE word. Hopefully, we'll end up with a shorter, more tailored list of files. Note that this is in the working directory `technical`.
+    - **example 1:** with the example above, we end up with a super long file full of files that have nothing to do with rna. To make sure we are only displaying the file names of files that have "rna", we use the `-w` command to specify that we want "rna" to be the WHOLE word. Hopefully, we'll end up with a shorter, more tailored list of files. Note that this is in the working directory `technical`.
         - command: `grep -lw "rna" $(find -f .) > files-with-onlyrna.txt`
         - output: we get a file with the contents:
             ```
