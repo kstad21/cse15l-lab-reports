@@ -101,6 +101,31 @@ In general, the grep command searches a file/pattern for a given set of characte
             ./biomed/1471-2148-3-7.txt
             ```
         - note: much shorter, and it makes sense that these files contain "rna"!. Not "external" or "internal", which make more sense for government files.
+    - example 2: search 911report files for Bill to see where Bill Clinton is mentioned (note that grep is by default case sensitive). We want to use -w because we don't want to get matches for "Billing" or "Bills" or "Billed", for example. Note that our working directory is `technical`.
+        - command: `grep -w "Bill" $(find 911report) > bill.txt`
+        - output: nothing, but we get a file with the contents:
+        ```
+        911report/chapter-13.4.txt:                Bin Laden: How Bill Clinton's Failures Unleashed Global Terror (Regnery, 2003),
+        911report/chapter-13.5.txt:                sequential referral of the annual authorization bill for the national foreign
+        911report/chapter-13.5.txt:                the bill passed by the Senate Select Committee on Intelligence before the bill is
+        911report/chapter-13.1.txt:            When Congress passes an appropriations bill to allocate money to intelligence
+        911report/chapter-13.1.txt:                been introduced, most recently a bill by the chairman of the House Intelligence
+        911report/chapter-13.2.txt:                2002; Bill Halleck and Peggy Houck interview (Jan. 8, 2004). The initial service
+        911report/chapter-13.2.txt:                Summary for Flight 11, Sept. 11, 2001; AAL transcript, telephone call from Bill
+        911report/chapter-13.3.txt:                Nov. 18, 1997. For a description of the Richardson mission, see Bill Richardson
+        911report/chapter-13.3.txt:                Madeleine Albright, with Bill Woodward, Madam Secretary (Miramax, 2003), pp.
+        911report/chapter-3.txt:            President Bill Clinton ordered his National Security Council to coordinate the
+        911report/chapter-3.txt:                its efforts on a "passenger bill of rights," to improve capacity, efficiency, and
+        911report/chapter-3.txt:                of the OSS was William J." Wild Bill" Donovan, a Wall Street lawyer. He recruited
+        911report/chapter-3.txt:                periodically killing them. He was also constrained by a bill he signed into law that
+        911report/chapter-3.txt:                authorization bill. Indeed, rather than increasing the DCI's authorities over
+        911report/chapter-3.txt:            President Bill Clinton's counterterrorism Presidential Decision Directives in 1995
+        911report/chapter-3.txt:                U.S. ambassador to the United Nations, Bill Richardson, led a delegation to South
+        911report/chapter-5.txt:            In short, they fit the bill for Bin Ladin, Atef, and KSM.
+        911report/chapter-6.txt:                Tanzania, President Bill Clinton and his chief aides explored ways of getting Bin
+        911report/chapter-11.txt:            Whatever the weaknesses in the CIA's portraiture, both Presidents Bill Clinton and
+        ```
+        - note that we did not use the `l` modifier, so our output also has the actual line that matches, not just the name of the file.
 - `grep v`: display the lines that do NOT match the given pattern/string
 - `grep -f`: take input from lines in a file and display matches
 
