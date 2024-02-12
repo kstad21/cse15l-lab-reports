@@ -113,7 +113,6 @@ In general, the grep command searches a file/pattern for a given set of characte
         911report/chapter-3.txt:                periodically killing them. He was also constrained by a bill he signed into law that
         911report/chapter-3.txt:                authorization bill. Indeed, rather than increasing the DCI's authorities over
         911report/chapter-5.txt:            In short, they fit the bill for Bin Ladin, Atef, and KSM.
-
         ```
         - note that we did not use the `-l` modifier, so our output also has the actual line that matches, not just the name of the file.
 - `grep -c`: display the number of lines that match a given string/pattern
