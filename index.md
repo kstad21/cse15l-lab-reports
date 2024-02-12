@@ -5,7 +5,7 @@ Testing, debugging, and command-line.
 ___
 ### Part 1: 
 There is a bug in the reverse() method of the ArrayExamples class. The method is supposed to take in an array and return a reversed version of that array. For example, {1, 2, 3} --> {3, 2, 1}.
-- Failure inducing output:
+- Failure inducing input:
     ```
     @Test
     public void testReversedActual() {
@@ -13,6 +13,17 @@ There is a bug in the reverse() method of the ArrayExamples class. The method is
         assertArrayEquals(new int[]{3, 2, 1}, ArrayExamples.reversed(input1);
     }
     ```
+- An input that does NOT induce failure:
+    ```
+    @Test
+    public void testReversedEmpty() {
+        int[] input = { };
+        assertArrayEquals(new int[]{ }, ArrayExamples.reversed(input));
+    }
+    ```
+- The symptom: As we can see, there were two tests run: one with the failure inducing input, one without. For the failed test, we can see that JUnit expected `3` but found `0` when it started comparing the expected with the actual array.
+![buggy test output](testOutput.jpg)
+
 
 ## Second Lab Report
 I wrote a web server called `ChatServer` that takes in message and user arguments and maintains and displays an ongoing chat between users. I also added a `clear` path so that the user can clear the chat if they'd like to.
