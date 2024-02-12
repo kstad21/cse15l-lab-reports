@@ -100,7 +100,7 @@ In general, the grep command searches a file/pattern for a given set of characte
             ./biomed/1471-2105-3-2.txt
             ./biomed/1471-2148-3-7.txt
             ```
-        - note: much shorter, and it makes sense that these files contain "rna"!. Not "external" or "internal", which make more sense for government files.
+        - note: much shorter, and it makes sense that these files contain "rna"!. Not "external" or "internal", which contain "rna" but make more sense for government files.
     - **example 2:** search 911report files for Bill to see where Bill Clinton is mentioned (note that grep is by default case sensitive). We want to use -w because we don't want to get matches for "Billing" or "Bills" or "Billed", for example. Note that our working directory is `technical`.
         - command: `grep -w "Bill" $(find 911report) > bill.txt`
         - output: we get a file with the contents:
