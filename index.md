@@ -21,8 +21,29 @@ There is a bug in the reverse() method of the ArrayExamples class. The method is
         assertArrayEquals(new int[]{ }, ArrayExamples.reversed(input));
     }
     ```
-- The symptom: As we can see, there were two tests run: one with the failure inducing input, one without. For the failed test, we can see that JUnit expected `3` but found `0` when it started comparing the expected with the actual array.
+- The symptom: As we can see, there were two tests run: one with the failure inducing input, one without. For the failed test, we can see that JUnit expected `3` but found `0` when it started comparing the expected with the actual array. 
 ![buggy test output](testOutput.jpg)
+- The buggy code:
+```
+static int[] reversedWrong(int[] arr) {
+    int[] newArray = new int[arr.length];
+    for(int i = 0; i < arr.length; i += 1) {
+      arr[i] = newArray[arr.length - i - 1];
+    }
+    return arr;
+}
+```
+- The correct code:
+```
+static int[] reversed(int[] arr) {
+    int[] newArray = new int[arr.length];
+    for(int i = 0; i < arr.length; i += 1) {
+      newArray[i] = arr[arr.length - i - 1];
+    }
+    return newArray;
+}
+```
+- Why does this fix work? I changed the buggy code so that instead of copying elements into the given array, arr, we copy elements into our `newArray`. Inside the for loop of the buggy code, we're actually copying elements from the `newArray` into the given array, when we want to do the opposite. The `0` found when we expected `3` is helpful because it makes us think about where the `0` came from. It can be a bit of a hint because the default values for an integer array are `0`, so we must be copying from the wrong array. Finally, I make sure we return the `newArray` rather than the old one. 
 
 
 ## Second Lab Report
