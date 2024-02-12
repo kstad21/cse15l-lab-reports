@@ -6,7 +6,7 @@ Testing, debugging, and command-line.
 ---
 
 ### Part 1: 
-There is a bug in the reverse() method of the ArrayExamples class. The method is supposed to take in an array and return a reversed version of that array. For example, {1, 2, 3} --> {3, 2, 1}.
+There is a bug in the `reverse()` method of the `ArrayExamples` class. The method is supposed to take in an array and return a reversed version of that array. For example, {1, 2, 3} --> {3, 2, 1}.
 - Failure inducing input:
     ```
     @Test
@@ -23,7 +23,7 @@ There is a bug in the reverse() method of the ArrayExamples class. The method is
         assertArrayEquals(new int[]{ }, ArrayExamples.reversed(input));
     }
     ```
-- The symptom: As we can see, there were two tests run: one with the failure inducing input, one without. For the failed test, we can see that JUnit expected `3` but found `0` when it started comparing the expected with the actual array. 
+- The symptom: As we can see, there were two tests run: one with the failure inducing input, one without. For the failed test, we can see that `JUnit` expected `3` but found `0` when it started comparing the expected with the actual array. 
 ![buggy test output](testOutput.jpg)
 - The buggy code:
 ```
@@ -51,7 +51,7 @@ static int[] reversed(int[] arr) {
 In general, the grep command searches a file/pattern for a given set of characters, then returns the lines that those characters appear on. In general, a use of grep could look like: `grep <"stuff to find"> <"file(s)">`
 #### Some other ways to use grep:
 - `grep -l`: display the file names of the lines that match a given pattern
-    - example 1: search the entire `technical` directory and redirect file names that have lines matching "Democrat" into a file called `files-with-democrat.txt`. Note that this is in the working directory `technical`.
+    - **example 1:** search the entire `technical` directory and redirect file names that have lines matching "Democrat" into a file called `files-with-democrat.txt`. Note that this is in the working directory `technical`.
         - command: `grep -l "Democrat" $(find -f .) > files-with-democrat.txt`
         - output: we get a file containing:
         ```
@@ -67,7 +67,7 @@ In general, the grep command searches a file/pattern for a given set of characte
         ./911report/chapter-13.5.txt
         ./911report/preface.txt
         ```
-    - example 2: search the entire `technical` directory and redirect file names that have lines matching "rna" into a file called `files-with-rna.txt`. Note that this is in the working directory `technical`.
+    - **example 2:** search the entire `technical` directory and redirect file names that have lines matching "rna" into a file called `files-with-rna.txt`. Note that this is in the working directory `technical`.
         - command: `grep -l "rna" $(find -f .) > files-with-rna.txt`
         - output: we get a file containing MANY file names, including:
         ```
@@ -91,7 +91,7 @@ In general, the grep command searches a file/pattern for a given set of characte
         ```
         - note here that there are a lot of files in the government directory that seem to contain "rna", which is peculiar. Check out the next example for more on this.
 - `grep -w`: display the lines that match the whole word of the pattern/string
-    - example 1: with the example above, we end up with a super long file full of files that have nothing to do with rna. To make sure we are only displaying the file names of files that have "rna", we use the -w command to specify that we want "rna" to be the WHOLE word. Hopefully, we'll end up with a shorter, more tailored list of files. Note that this is in the working directory `technical`.
+    - **example 1:** with the example above, we end up with a super long file full of files that have nothing to do with rna. To make sure we are only displaying the file names of files that have "rna", we use the -w command to specify that we want "rna" to be the WHOLE word. Hopefully, we'll end up with a shorter, more tailored list of files. Note that this is in the working directory `technical`.
         - command: `grep -lw "rna" $(find -f .) > files-with-onlyrna.txt`
         - output: we get a file with the contents:
             ```
@@ -101,7 +101,7 @@ In general, the grep command searches a file/pattern for a given set of characte
             ./biomed/1471-2148-3-7.txt
             ```
         - note: much shorter, and it makes sense that these files contain "rna"!. Not "external" or "internal", which make more sense for government files.
-    - example 2: search 911report files for Bill to see where Bill Clinton is mentioned (note that grep is by default case sensitive). We want to use -w because we don't want to get matches for "Billing" or "Bills" or "Billed", for example. Note that our working directory is `technical`.
+    - **example 2:** search 911report files for Bill to see where Bill Clinton is mentioned (note that grep is by default case sensitive). We want to use -w because we don't want to get matches for "Billing" or "Bills" or "Billed", for example. Note that our working directory is `technical`.
         - command: `grep -w "Bill" $(find 911report) > bill.txt`
         - output: we get a file with the contents:
         ```
@@ -127,7 +127,7 @@ In general, the grep command searches a file/pattern for a given set of characte
         ```
         - note that we did not use the `l` modifier, so our output also has the actual line that matches, not just the name of the file.
 - `grep -c`: display the number of lines that match a given string/pattern
-    - example 1: get an idea of how many times Bill Clinton is mentioned in the `911report`. Note that our working directory is `technical`.
+    - **example 1:** get an idea of how many times Bill Clinton is mentioned in the `911report`. Note that our working directory is `technical`.
         - command: `grep -c "Bill" $(find 911report)`
         - output:
         ```
@@ -151,7 +151,7 @@ In general, the grep command searches a file/pattern for a given set of characte
         911report/chapter-11.txt:1
         ```
         - note: we can see that Bill Clinton will probably be mentioned most in chapter 3 of the report. Plus, if we're looking to find information about Bill Clinton, we know not to look at Chapter 7, 8, 9, etc.
-    - example 2: check the `government` `Alcohol_Problems` for any mentions of addiction, to get an idea of which session talked the most about addiction. Write to a file called `addict-mentions.txt` for easier viewing. Note that our working directory is `technical`.
+    - **example 2:** check the `government` `Alcohol_Problems` for any mentions of addiction, to get an idea of which session talked the most about addiction. Write to a file called `addict-mentions.txt` for easier viewing. Note that our working directory is `technical`.
         - command: `grep -c "addict" $(find government/Alcohol_Problems) > addict-mentions.txt`
         - output: a file containing:
         ```
@@ -162,7 +162,7 @@ In general, the grep command searches a file/pattern for a given set of characte
         ```
         - note: we can see that session 4 mentions addiction the most (assuming there's an even spread of mentions across lines), though all of them mention it a fair amount. This can also give us an overall idea of entertwined alcoholism and addiction are in these government documents. 
 - `grep -f`: take input from lines in a file and display matches
-    - example 1: pull from a file called `parties.txt`, containing a list of government parties (Democrat, Republican, Independent), and search the `government` directory for party. For easier viewing, I directed this to a file called `gov-party.txt`. Note that the working directory is `technical`.
+    - **example 1:** pull from a file called `parties.txt`, containing a list of government parties (Democrat, Republican, Independent), and search the `government` directory for party. For easier viewing, I directed this to a file called `gov-party.txt`. Note that the working directory is `technical`.
         - command: `grep -f parties.txt $(find government) > gov-party.txt`
         - output: we get a file with the contents:
         ```
@@ -193,7 +193,7 @@ In general, the grep command searches a file/pattern for a given set of characte
         government/Media/Barr_sharpening_ax.txt:A House Democratic staffer close to the case said that GAO
         government/Media/Politician_Practices.txt:governor. Democrat Roy Barnes was upset in November by Sonny
         ```
-    - example 2: Check the `plos` directory for a list of different researchers and display the file name and line in a file called `researcher-mentions.txt`. Our list of different researchers comes from the file `researchers.txt`, which contains:
+    - **example 2:** Check the `plos` directory for a list of different researchers and display the file name and line in a file called `researcher-mentions.txt`. Our list of different researchers comes from the file `researchers.txt`, which contains:
     ```
     Hamilton
     Eisen
