@@ -2,7 +2,7 @@
 
 ## Third Lab Report
 Testing, debugging, and command-line.
-___
+---
 ### Part 1: 
 There is a bug in the reverse() method of the ArrayExamples class. The method is supposed to take in an array and return a reversed version of that array. For example, {1, 2, 3} --> {3, 2, 1}.
 - Failure inducing input:
@@ -43,7 +43,64 @@ static int[] reversed(int[] arr) {
     return newArray;
 }
 ```
-- Why does this fix work? I changed the buggy code so that instead of copying elements into the given array, arr, we copy elements into our `newArray`. Inside the for loop of the buggy code, we're actually copying elements from the `newArray` into the given array, when we want to do the opposite. The `0` found when we expected `3` is helpful because it makes us think about where the `0` came from. It can be a bit of a hint because the default values for an integer array are `0`, so we must be copying from the wrong array. Finally, I make sure we return the `newArray` rather than the old one. 
+- Why does this fix work? I changed the buggy code so that instead of copying elements into the given array, arr, we copy elements into our `newArray`. Inside the for loop of the buggy code, we're actually copying elements from the `newArray` into the given array, when we want to do the opposite. The `0` found when we expected `3` is helpful because it makes us think about where the `0` came from. It can be a bit of a hint because the default values for an integer array are `0`, so we must be copying from the wrong array. Finally, I make sure we return the `newArray` rather than the old one.
+
+### Part 2: researching a command (grep)
+In general, the grep command searches a file/pattern for a given set of characters, then returns the lines that those characters appear on. In general, a use of grep could look like: `grep <"stuff to find"> <"file(s)">`
+#### Some other ways to use grep:
+- `grep -l`: display the file names of the lines that match a given pattern
+    - example 1: search the entire `technical` directory and redirect file names that have lines matching "Democrat" into a file called `files-with-democrat.txt`. Note that this is in the working directory `technical`.
+        - command: `grep -l "Democrat" $(find -f .) > files-with-democrat.txt`
+        - output: no output, instead we get a file containing:
+        ```
+        ./government/Gen_Account_Office/July11-2001_gg00172r.txt
+        ./government/Media/Good_guys_reward.txt
+        ./government/Media/Barnes_pro_bono.txt
+        ./government/Media/predatory_loans.txt
+        ./government/Media/Terrorist_Attack.txt
+        ./government/Media/Attorney_gives_his_time.txt
+        ./government/Media/Weak_economy.txt
+        ./government/Media/Barr_sharpening_ax.txt
+        ./government/Media/Politician_Practices.txt
+        ./911report/chapter-13.5.txt
+        ./911report/preface.txt
+        ```
+    - example 2: search the entire `technical` directory and redirect file names that have lines matching "rna" into a file called `files-with-rna.txt`. Note that this is in the working directory `technical`.
+        - command: `grep -l "rna" $(find -f .) > files-with-rna.txt`
+        - output: no output, instead we get a file containing MANY file names, including:
+        ```
+        ./government/About_LSC/LegalServCorp_v_VelazquezSyllabus.txt
+        ./government/About_LSC/Progress_report.txt
+        ./government/About_LSC/Strategic_report.txt
+        ./government/About_LSC/Comments_on_semiannual.txt
+        ./government/About_LSC/Special_report_to_congress.txt
+        ./government/About_LSC/CONFIG_STANDARDS.txt
+        ./government/About_LSC/commission_report.txt
+        ./government/About_LSC/LegalServCorp_v_VelazquezDissent.txt
+        ./government/About_LSC/ONTARIO_LEGAL_AID_SERIES.txt
+        ./government/About_LSC/LegalServCorp_v_VelazquezOpinion.txt
+        ./government/About_LSC/diversity_priorities.txt
+        ./government/About_LSC/reporting_system.txt
+        ./government/About_LSC/State_Planning_Report.txt
+        ./government/About_LSC/Protocol_Regarding_Access.txt
+        ./government/About_LSC/ODonnell_et_al_v_LSCdecision.txt
+        ./government/About_LSC/conference_highlights.txt
+        ./government/Env_Prot_Agen/multi102902.txt
+        ```
+        - note here that there are a lot of files in the government directory that seem to contain "rna", which is peculiar. Check out the next example for more on this.
+- `grep -w`: display the lines that match the whole word of the pattern/string
+    - example 1: with the example above, we end up with a super long file full of files that have nothing to do with rna. To make sure we are only displaying the file names of files that have "rna", we use the -w command to specify that we want "rna" to be the WHOLE word. Hopefully, we'll end up with a shorter, more tailored list of files. Note that this is in the working directory `technical`.
+        - command: `grep -lw "rna" $(find -f .) > files-with-onlyrna.txt`
+        - output: nothing, but we get a file with the contents:
+            ```
+            ./biomed/1471-2164-3-13.txt
+            ./biomed/1471-2199-3-17.txt
+            ./biomed/1471-2105-3-2.txt
+            ./biomed/1471-2148-3-7.txt
+            ```
+        - note: much shorter, and it makes sense that these files contain "rna"!. Not "external" or "internal", which make more sense for government files.
+- `grep v`: display the lines that do NOT match the given pattern/string
+- `grep -f`: take input from lines in a file and display matches
 
 
 ## Second Lab Report
