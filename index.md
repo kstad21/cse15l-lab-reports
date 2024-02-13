@@ -47,7 +47,7 @@ static int[] reversed(int[] arr) {
 ```
 - Why does this fix work? I changed the buggy code so that instead of copying elements into the given array, `arr`, we copy elements into our `newArray`. Inside the for loop of the buggy code, we're actually copying elements from the `newArray` into the given array, when we want to do the opposite. The `0` found when we expected `3` is helpful because it makes us think about where the `0` came from. It can be a bit of a hint because the default values for an integer array are `0`, so we must be copying from the wrong array. Finally, I make sure we return the `newArray` rather than the old one.
 
-### Part 2: researching a command (grep)
+### Part 2: researching a command (`grep`)
 In general, the grep command searches a file/pattern for a given set of characters, then returns the lines that those characters appear on. In general, a use of `grep` could look like: `grep <"stuff to find"> <"file(s)">`. I referenced [geeks for geeks](https://www.geeksforgeeks.org/grep-command-in-unixlinux/) for the different `grep` modifiers, then tinkered around a bit to come up with my specific examples.
 #### Some other ways to use grep:
 - `grep -l`: display the file names of the lines that match a given pattern
