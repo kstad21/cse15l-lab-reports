@@ -183,7 +183,7 @@ In general, the grep command searches a file/pattern for a given set of characte
         government/Media/Barr_sharpening_ax.txt:A House Democratic staffer close to the case said that GAO
         government/Media/Politician_Practices.txt:governor. Democrat Roy Barnes was upset in November by Sonny
         ```
-        - `grep` uses each line in parties.txt as "the thing to search for" and displays the file and line that matches the inputs. This is useful if we're not sure which parties we want to search for, or if we want to change it for the future, or if there are a ton of different parties we want to look for.
+        - `grep` uses each line in `parties.txt` as "the thing to search for" and displays the file and line that matches the inputs. This is useful if we're not sure which parties we want to search for, or if we want to change it for the future, or if there are a ton of different parties we want to look for.
     - **example 2:** Check the `plos` directory for a list of different researchers and display the file name and line in a file called `researcher-mentions.txt`. Our list of different researchers comes from the file `researchers.txt`, which contains:
     ```
     Hamilton
