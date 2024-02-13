@@ -90,7 +90,7 @@ In general, the grep command searches a file/pattern for a given set of characte
         ./government/About_LSC/conference_highlights.txt
         ./government/Env_Prot_Agen/multi102902.txt
         ```
-        - Again, `grep` displays the file names with line matches to "rna", and we redirect the `grep` output into a file. We are using the parameterized find command as we did in the example above. Note here that there are a lot of files in the government directory that seem to contain "rna", which is peculiar. Check out the next example for more on this.
+        - Again, `grep` displays the file names with line matches to "rna", and we redirect the `grep` output into a file. We are using the parameterized find command as we did in the example above. Note here that there are a lot of files in the `government` directory that seem to contain "rna", which is peculiar. Check out the next example for more on this.
 - `grep -w`: display the lines that match the whole word of the pattern/string
     - **example 1:** with the example above, we end up with a super long file full of files that have nothing to do with rna. To make sure we are only displaying the file names of files that have "rna", we use the `-w` command to specify that we want "rna" to be the WHOLE word. Hopefully, we'll end up with a shorter, more tailored list of files. Note that this is in the working directory `technical`.
         - command: `grep -lw "rna" $(find -f .) > files-with-onlyrna.txt`
@@ -140,7 +140,7 @@ In general, the grep command searches a file/pattern for a given set of characte
         911report/chapter-10.txt:0
         911report/chapter-11.txt:1
         ```
-        - `grep` looks for line matches for "Bill" in the 911report directory, then displays each file and the "Bill" count for that file. We can see that Bill Clinton will probably be mentioned most in Chapter 3 of the report. Plus, if we're looking to find information about Bill Clinton, we know not to look at Chapter 7, 8, 9, etc.
+        - `grep` looks for line matches for "Bill" in the `911report` directory, then displays each file and the "Bill" count for that file. We can see that Bill Clinton will probably be mentioned most in Chapter 3 of the report. Plus, if we're looking to find information about Bill Clinton, we know not to look at Chapter 7, 8, 9, etc.
     - **example 2:** check the `government` `Alcohol_Problems` for any mentions of addiction, to get an idea of which session talked the most about addiction. Write to a file called `addict-mentions.txt` for easier viewing. Note that our working directory is `technical`.
         - command: `grep -c "addict" $(find government/Alcohol_Problems) > addict-mentions.txt`
         - output: a file containing:
