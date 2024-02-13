@@ -67,6 +67,7 @@ In general, the grep command searches a file/pattern for a given set of characte
         ./911report/chapter-13.5.txt
         ./911report/preface.txt
         ```
+        - In this situation, the `grep` command, because we provided the `-l` modifier, displays the file names of line matches to "Democrat". For the "stuff to look through", we use a parameterized find command, which recursively searches `technical`.
     - **example 2:** search the entire `technical` directory and redirect file names that have lines matching "rna" into a file called `files-with-rna.txt`. Note that this is in the working directory `technical`.
         - command: `grep -l "rna" $(find -f .) > files-with-rna.txt`
         - output: we get a file containing MANY file names, including:
@@ -89,7 +90,7 @@ In general, the grep command searches a file/pattern for a given set of characte
         ./government/About_LSC/conference_highlights.txt
         ./government/Env_Prot_Agen/multi102902.txt
         ```
-        - note here that there are a lot of files in the government directory that seem to contain "rna", which is peculiar. Check out the next example for more on this.
+        - Again, `grep` displays the file names with line matches to "rna", and we redirect the `grep` output into a file. We are using the parameterized find command as we did in the example above. Note here that there are a lot of files in the government directory that seem to contain "rna", which is peculiar. Check out the next example for more on this.
 - `grep -w`: display the lines that match the whole word of the pattern/string
     - **example 1:** with the example above, we end up with a super long file full of files that have nothing to do with rna. To make sure we are only displaying the file names of files that have "rna", we use the `-w` command to specify that we want "rna" to be the WHOLE word. Hopefully, we'll end up with a shorter, more tailored list of files. Note that this is in the working directory `technical`.
         - command: `grep -lw "rna" $(find -f .) > files-with-onlyrna.txt`
@@ -100,7 +101,7 @@ In general, the grep command searches a file/pattern for a given set of characte
             ./biomed/1471-2105-3-2.txt
             ./biomed/1471-2148-3-7.txt
             ```
-        - note: much shorter, and it makes sense that these files contain "rna"!. Not "external" or "internal", which contain "rna" but make more sense for government files.
+        - The ouptut we get is much shorter, and it makes sense that these files contain "rna"!. Not "external" or "internal", which contain "rna" but make more sense for government files. `grep` searches for "rna" as a whole word and only returns matches for that. We also still use the `-l` modifier to only display file names.
     - **example 2:** search `911report` files for "bill" to see where legislation is being called into play. We want to use `-w` because we don't want to get matches for "billing" or "bills" or "billion", for example. Note that our working directory is `technical`.
         - command: `grep -w "bill" $(find 911report) > bill.txt`
         - output: we get a file with the contents:
@@ -114,7 +115,7 @@ In general, the grep command searches a file/pattern for a given set of characte
         911report/chapter-3.txt:                authorization bill. Indeed, rather than increasing the DCI's authorities over
         911report/chapter-5.txt:            In short, they fit the bill for Bin Ladin, Atef, and KSM.
         ```
-        - note that we did not use the `-l` modifier, so our output also has the actual line that matches, not just the name of the file.
+        - Here, we did not use the `-l` modifier, so our output also has the actual line that matches, not just the name of the file. We used a parameterized `find` command that recursively searched the `911report` as the second argument for `grep`.
 - `grep -c`: display the number of lines that match a given string/pattern
     - **example 1:** get an idea of how many times Bill Clinton is mentioned in the `911report`. Note that our working directory is `technical`.
         - command: `grep -c "Bill" $(find 911report)`
@@ -139,7 +140,7 @@ In general, the grep command searches a file/pattern for a given set of characte
         911report/chapter-10.txt:0
         911report/chapter-11.txt:1
         ```
-        - note: we can see that Bill Clinton will probably be mentioned most in Chapter 3 of the report. Plus, if we're looking to find information about Bill Clinton, we know not to look at Chapter 7, 8, 9, etc.
+        - `grep` looks for line matches for "Bill" in the 911report directory, then displays each file and the "Bill" count for that file. We can see that Bill Clinton will probably be mentioned most in Chapter 3 of the report. Plus, if we're looking to find information about Bill Clinton, we know not to look at Chapter 7, 8, 9, etc.
     - **example 2:** check the `government` `Alcohol_Problems` for any mentions of addiction, to get an idea of which session talked the most about addiction. Write to a file called `addict-mentions.txt` for easier viewing. Note that our working directory is `technical`.
         - command: `grep -c "addict" $(find government/Alcohol_Problems) > addict-mentions.txt`
         - output: a file containing:
@@ -149,7 +150,7 @@ In general, the grep command searches a file/pattern for a given set of characte
         government/Alcohol_Problems/DraftRecom-PDF.txt:2
         government/Alcohol_Problems/Session4-PDF.txt:11
         ```
-        - note: we can see that session 4 mentions addiction the most (assuming there's an even spread of mentions across lines), though all of them mention it a fair amount. This can also give us an overall idea of entertwined alcoholism and addiction are in these government documents. 
+        - `grep` searches `Alcohol_Problems` recursively for "addict" and returns the files and line match count. We can see that session 4 mentions addiction the most (assuming there's an even spread of mentions across lines), though all of them mention it a fair amount. This can also give us an overall idea of entertwined alcoholism and addiction are in these government documents. 
 - `grep -f`: take input from lines in a file and display matches
     - **example 1:** pull from a file called `parties.txt`, containing a list of government parties (Democrat, Republican, Independent), and search the `government` directory for party. For easier viewing, I directed this to a file called `gov-party.txt`. Note that the working directory is `technical`.
         - command: `grep -f parties.txt $(find government) > gov-party.txt`
@@ -182,6 +183,7 @@ In general, the grep command searches a file/pattern for a given set of characte
         government/Media/Barr_sharpening_ax.txt:A House Democratic staffer close to the case said that GAO
         government/Media/Politician_Practices.txt:governor. Democrat Roy Barnes was upset in November by Sonny
         ```
+        - `grep` uses each line in parties.txt as "the thing to search for" and displays the file and line that matches the inputs. This is useful if we're not sure which parties we want to search for, or if we want to change it for the future, or if there are a ton of different parties we want to look for.
     - **example 2:** Check the `plos` directory for a list of different researchers and display the file name and line in a file called `researcher-mentions.txt`. Our list of different researchers comes from the file `researchers.txt`, which contains:
     ```
     Hamilton
@@ -222,6 +224,7 @@ In general, the grep command searches a file/pattern for a given set of characte
         plos/journal.pbio.0020148.txt:        other aspects of vertebrate development to the stripy tiddler (Figure 1). As Eisen
         plos/journal.pbio.0020148.txt:        Wilson's own interest is in neuroanatomy. Together with Jon Clarke, another
         ```
+        - `grep -f` is useful because we don't have to manually type in each researcher's name we want to look for. We can also change the list whenever we want and quickly search again.
 
   
 
