@@ -4,9 +4,34 @@
 Doing it all from the command line
 1. Log into `ieng6`
 !["Log into ieng6"](login-ieng6.jpg)
-`ssh kstadler@ieng6.ucsd.edu`
-- I used the `ssh` command and my username to log into `ieng6`. I typed out the full words because I wasn't sure how recently I'd used `ssh` (I'd been doing a bunch of practice with `grep` and `wc` beforehand). 
-
+`ssh kstadler@ieng6.ucsd.edu <enter>`
+- I used the `ssh` command and my username to log into `ieng6`. I typed out the full words because I wasn't sure how recently I'd used `ssh` (I'd been doing a bunch of practice with `grep` and `wc` beforehand).
+2. Clone repository `fork` using Github `ssh` url
+!["Clone fork"](clone-with-ssh.jpg)
+`git clone <command v> <enter>`
+- I used the `git clone` command and then the `ssh` url that had previously been copied to my clipboard.
+3. Run the tests and show that they do not pass
+!["Run the tests"](run-test-show-wrong.jpg)
+`cd l <tab> <enter> ls <enter> bash t <tab> <enter>`
+- I moved into the `lab7` directory and used `tab` to autofill with the prompt "l". Then I used `ls` to be sure of the name of the test file I wanted to run. Then, I used the `bash` command and used `tab` to autofill with the prompt "t" because `test.sh` was the only file in the directory that started with a "t".
+4. Edit the code so that the tests run
+!["Edit the test"](edit-test-with-vim.jpg)
+`vim lis <tab> . <tab> <enter> jx42 e x i 2 <esc> :wq`
+- I opened the file with `vim` and used `tab` to autofill based on "lis" to get to "ListExamples", then added a . and used `tab` to autofill to `ListExamples.java`. Then I used `j` to move down in the `vim` editor till I got to the line I wanted to edit. Then I used `e` to get to the end of the first word (which was index1 at the time) and typed `x` to delete the 1 that the cursor was over. Then I typed `i` to go into insert mode and typed 2. Finally, I typed `<escape>` to go back to normal mode and wrote and quit.
+5. Run the tests again
+!["Run tests again"](run-test-show-work.jpg)
+`<up> <up> <up> <enter>`
+- Since I had just used the command `bash test.sh`, I used the `<up>` arrow 3 times to find the command, then pressed enter. The tests ran successfully, as you can see in the screenshot above.
+6. Commit and push
+!["Git add"](git-add.jpg)
+`git add L <tab> <enter>`
+- Before committing, I use `git add` to add the file I changed to be included for the commit, using `<tab>` to autocomplete to `ListExamples.java` afte typing "L".
+!["Git commit"](git-commit.jpg)
+`git commit -m 'Fixed a test' <enter>`
+- Since I'm doing a short commit message, I use the `-m` modifier to `git commit` instead of opening up `vim` to create a commit message.
+!["Git push"](git-push.jpg)
+`git push`
+- Now that the changes have been committed, I type `git push` to push my changes back to the remote repository. When I go back to check the online repository, I see that input1 has successfully been changed to input2. 
 
 ## Third Lab Report
 Testing, debugging, and command-line.
