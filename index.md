@@ -26,6 +26,7 @@ Doing it all from the command line
 !["Git add"](git-add.jpg)
 `git add L <tab> <enter>`
 - Before committing, I use `git add` to add the file I changed to be included for the commit, using `<tab>` to autocomplete to `ListExamples.java` afte typing "L".
+
 !["Git commit"](git-commit.jpg)
 `git commit -m 'Fixed a test' <enter>`
 - Since I'm doing a short commit message, I use the `-m` modifier to `git commit` instead of opening up `vim` to create a commit message.
