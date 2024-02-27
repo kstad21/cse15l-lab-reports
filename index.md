@@ -16,6 +16,7 @@ Doing it all from the command line
 - I moved into the `lab7` directory and used `tab` to autofill with the prompt "l". Then I used `ls` to be sure of the name of the test file I wanted to run. Then, I used the `bash` command and used `tab` to autofill with the prompt "t" because `test.sh` was the only file in the directory that started with a "t".
 4. Edit the code so that the tests run
 !["Edit the test"](edit-test-with-vim.jpg)
+
 `vim lis <tab> . <tab> <enter> jx42 e x i 2 <esc> :wq`
 - I opened the file with `vim` and used `tab` to autofill based on "lis" to get to "ListExamples", then added a . and used `tab` to autofill to `ListExamples.java`. Then I used `j` to move down in the `vim` editor till I got to the line I wanted to edit. Then I used `e` to get to the end of the first word (which was index1 at the time) and typed `x` to delete the 1 that the cursor was over. Then I typed `i` to go into insert mode and typed 2. Finally, I typed `<escape>` to go back to normal mode and wrote and quit.
 5. Run the tests again
