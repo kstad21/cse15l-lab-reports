@@ -22,7 +22,8 @@ Doing it all from the command line
 - I opened the file with `vim` and used `tab` to autofill based on "lis" to get to "ListExamples", then added a . and used `tab` to autofill to `ListExamples.java`. Then I used `j` to move down in the `vim` editor till I got to the line I wanted to edit. Then I used `e` to get to the end of the first word (which was index1 at the time) and typed `x` to delete the 1 that the cursor was over. Then I typed `i` to go into insert mode and typed 2. Finally, I typed `<escape>` to go back to normal mode and wrote and quit.
 5. Run the tests again
   
-!["Run tests again"](tun-test-show-work.jpg)
+!["Run tests again"](tun-test-show-work.jpg
+
 `<up> <up> <up> <enter>`
 - Since I had just used the command `bash test.sh`, I used the `<up>` arrow 3 times to find the command, then pressed enter. The tests ran successfully, as you can see in the screenshot above.
 6. Commit and push
