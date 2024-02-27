@@ -15,6 +15,7 @@ Doing it all from the command line
 `cd l <tab> <enter> ls <enter> bash t <tab> <enter>`
 - I moved into the `lab7` directory and used `tab` to autofill with the prompt "l". Then I used `ls` to be sure of the name of the test file I wanted to run. Then, I used the `bash` command and used `tab` to autofill with the prompt "t" because `test.sh` was the only file in the directory that started with a "t".
 4. Edit the code so that the tests run
+  
 !["Edit the test"](edit-test-with-vim.jpg)
 
 `vim lis <tab> . <tab> <enter> jx42 e x i 2 <esc> :wq`
