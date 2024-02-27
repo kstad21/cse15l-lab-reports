@@ -1,5 +1,13 @@
 # Katy's CSE15L Lab Reports
 
+## Fourth Lab Report
+Doing it all from the command line
+1. Log into `ieng6`
+!["Log into ieng6"](login-ieng6.jpg)
+`ssh kstadler@ieng6.ucsd.edu`
+- I used the `ssh` command and my username to log into `ieng6`. I typed out the full words because I wasn't sure how recently I'd used `ssh` (I'd been doing a bunch of practice with `grep` and `wc` beforehand). 
+
+
 ## Third Lab Report
 Testing, debugging, and command-line.
 
